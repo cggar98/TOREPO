@@ -1,0 +1,92 @@
+
+    ***********************************************************************
+                     Manipulate topology for polymers
+              ----------------------------------------------
+
+                                Version None
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        Topology is an open-source python library to quickly modify topology 
+        of polymer molecules
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+
+		Command line: 
+			python topology_cmd -i 02-iPP_layer.pdb -r 03-iPP_layer_initial_HEADTAIL.dat -a 04-iPP_layer_initial_RESIDUES.dat -p 05-iPP_final
+			         or
+			topology_cmd  -i 02-iPP_layer.pdb -r 03-iPP_layer_initial_HEADTAIL.dat -a 04-iPP_layer_initial_RESIDUES.dat -p 05-iPP_final
+
+		Starting: 	 27-02-2024 16:07:23
+
+		Input is a PDB format.
+		Reading... (27-02-2024 16:07:23)
+			 Start Guessing bonds using MDAnalysis library. (27-02-2024 16:07:23)
+			 End Guessing bonds using MDAnalysis library. (27-02-2024 16:07:28)
+
+			 Start Loop over atoms. (27-02-2024 16:07:28)
+			 End Loop over atoms. (27-02-2024 16:07:28)
+
+			 Start Creating topology. (27-02-2024 16:07:28)
+			 End Creating topology. (27-02-2024 16:07:30)
+		End read   (27-02-2024 16:07:30)
+
+		****** WRITE PDB and PSF files (27-02-2024 16:07:30) ****** 
+		 Writing PDB file...05-iPP_final.pdb (27-02-2024 16:07:30)
+		 CONECT table has been written.
+		****** END WRITE PDB and PSF files (27-02-2024 16:07:30) ****** 
+
+		****** RENUMBERING AND ASSIGN RESIDUES PDB and PSF files (27-02-2024 16:07:30) ****** 
+		 Renumbering PDB file... 05-iPP_final.pdb (27-02-2024 16:07:30)
+
+			 Start Loop over atoms. (27-02-2024 16:07:30)
+			 End Loop over atoms. (27-02-2024 16:07:30)
+
+			 Start Creating topology. (27-02-2024 16:07:30)
+			 End Creating topology. (27-02-2024 16:07:31)
+		 Head-Tail info from ... 03-iPP_layer_initial_HEADTAIL.dat (27-02-2024 16:07:31)
+		 Write renumbered file ... 05-iPP_final_residues.pdb (27-02-2024 16:07:31)
+		 Writing PSF file...05-iPP_final_residues.psf (27-02-2024 16:07:32)
+
+		****** END RENUMBERING PDB and PSF files (27-02-2024 16:07:35) ****** 
+
+		****** SUMMARY (27-02-2024 16:07:35) ****** 
+		 PDB file: 05-iPP_final_residues.pdb
+		 GRO file: 05-iPP_final_residues.gro
+		 PSF file: 05-iPP_final_residues.psf
+		****** END SUMMARY (27-02-2024 16:07:35) ****** 
+
+		Summarize of the input system (27-02-2024 16:07:35)
+		=======================================================
+		Input file                  : /home/cgarcia/Programs/TOREPO/example_topology/MULTI_RUN/iPP/02-iPP_layer.pdb
+		CONECT table input file     : False
+		Head info file              : 03-iPP_layer_initial_HEADTAIL.dat
+		Residue info file           : 04-iPP_layer_initial_RESIDUES.dat
+		
+		Number of molecules         : 10
+		Number of residues          : 1003
+		Number of atoms             : 9230
+		Number of bonds             : 9220
+		Bond info available         : True
+		Simulation box dimension    : 0.0000 0.0000 0.0000 nm
+		Simulation box angles       : 0.00 0.00 0.00 degrees
+		
+		Output raw pdb file         : 05-iPP_final.pdb
+		CONECT table output pdb file: True
+		=======================================================
+
+
+		  WARNING 1: Topology is absent in the input file.
+		  WARNING 1: The topology has been estimated from atom distances,
+		  WARNING 1: which may introduce errors if overlapping exists in the system.
+
+		Job  Done at 27-02-2024 16:07:35 ============
+		Total time: 11.50 seconds

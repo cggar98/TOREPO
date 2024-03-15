@@ -1,0 +1,92 @@
+
+    ***********************************************************************
+                     Manipulate topology for polymers
+              ----------------------------------------------
+
+                                Version None
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        Topology is an open-source python library to quickly modify topology 
+        of polymer molecules
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+
+		Command line: 
+			python topology_cmd -i 02-PE-C204_FS_initial.pdb -r 03-PE-C204_FS_initial_HEADTAIL.dat -a 04-PE-C204_FS_initial_RESIDUES.dat -p 05-PE_final
+			         or
+			topology_cmd  -i 02-PE-C204_FS_initial.pdb -r 03-PE-C204_FS_initial_HEADTAIL.dat -a 04-PE-C204_FS_initial_RESIDUES.dat -p 05-PE_final
+
+		Starting: 	 27-02-2024 13:08:42
+
+		Input is a PDB format.
+		Reading... (27-02-2024 13:08:42)
+			 Start Guessing bonds using MDAnalysis library. (27-02-2024 13:08:42)
+			 End Guessing bonds using MDAnalysis library. (27-02-2024 13:08:42)
+
+			 Start Loop over atoms. (27-02-2024 13:08:42)
+			 End Loop over atoms. (27-02-2024 13:08:42)
+
+			 Start Creating topology. (27-02-2024 13:08:42)
+			 End Creating topology. (27-02-2024 13:08:42)
+		End read   (27-02-2024 13:08:42)
+
+		****** WRITE PDB and PSF files (27-02-2024 13:08:42) ****** 
+		 Writing PDB file...05-PE_final.pdb (27-02-2024 13:08:42)
+		 CONECT table has been written.
+		****** END WRITE PDB and PSF files (27-02-2024 13:08:42) ****** 
+
+		****** RENUMBERING AND ASSIGN RESIDUES PDB and PSF files (27-02-2024 13:08:42) ****** 
+		 Renumbering PDB file... 05-PE_final.pdb (27-02-2024 13:08:42)
+
+			 Start Loop over atoms. (27-02-2024 13:08:42)
+			 End Loop over atoms. (27-02-2024 13:08:42)
+
+			 Start Creating topology. (27-02-2024 13:08:42)
+			 End Creating topology. (27-02-2024 13:08:43)
+		 Head-Tail info from ... 03-PE-C204_FS_initial_HEADTAIL.dat (27-02-2024 13:08:43)
+		 Write renumbered file ... 05-PE_final_residues.pdb (27-02-2024 13:08:43)
+		 Writing PSF file...05-PE_final_residues.psf (27-02-2024 13:08:43)
+
+		****** END RENUMBERING PDB and PSF files (27-02-2024 13:08:43) ****** 
+
+		****** SUMMARY (27-02-2024 13:08:43) ****** 
+		 PDB file: 05-PE_final_residues.pdb
+		 GRO file: 05-PE_final_residues.gro
+		 PSF file: 05-PE_final_residues.psf
+		****** END SUMMARY (27-02-2024 13:08:43) ****** 
+
+		Summarize of the input system (27-02-2024 13:08:43)
+		=======================================================
+		Input file                  : /home/cgarcia/Programs/TOREPO/example_topology/PE_test/02-PE-C204_FS_initial.pdb
+		CONECT table input file     : False
+		Head info file              : 03-PE-C204_FS_initial_HEADTAIL.dat
+		Residue info file           : 04-PE-C204_FS_initial_RESIDUES.dat
+		
+		Number of molecules         : 2
+		Number of residues          : 204
+		Number of atoms             : 1228
+		Number of bonds             : 1226
+		Bond info available         : True
+		Simulation box dimension    : 0.0000 0.0000 0.0000 nm
+		Simulation box angles       : 0.00 0.00 0.00 degrees
+		
+		Output raw pdb file         : 05-PE_final.pdb
+		CONECT table output pdb file: True
+		=======================================================
+
+
+		  WARNING 1: Topology is absent in the input file.
+		  WARNING 1: The topology has been estimated from atom distances,
+		  WARNING 1: which may introduce errors if overlapping exists in the system.
+
+		Job  Done at 27-02-2024 13:08:43 ============
+		Total time: 1.08 seconds
