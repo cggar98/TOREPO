@@ -1,0 +1,85 @@
+
+    ***********************************************************************
+              Replicate a molecule or polymer chain (ReMoPo)
+              ----------------------------------------------
+
+                                Version 3.0
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        ReMoPo is an open-source python library to quickly replicate a molecule
+        from a pdb file containing the seed molecule. After that, the script assigns
+        the force field parameters using the foyer library (https://mosdef.org/)
+        This program generates GROMACS and LAMMPS files to run simulations.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 12-03-2024 16:50:33 ============
+
+		Command line: 
+			python replicate_polymer -p ../05-PE_final_residues.pdb -f /home/cgarcia/Programs/replicate_polymer_topology/forcefields/trappe-ua_PEToxvaerd.xml --images 1 1 1 --noh --npairs -20000
+			         or
+			replicate_polymer -p ../05-PE_final_residues.pdb -f /home/cgarcia/Programs/replicate_polymer_topology/forcefields/trappe-ua_PEToxvaerd.xml --images 1 1 1 --noh --npairs -20000
+
+
+		Check resname and connect in the input file. (../05-PE_final_residues.pdb)... (12-03-2024 16:50:33)
+		******************************************************************************************************
+
+		End Check resname and connect in the input file. (../05-PE_final_residues.pdb)... (12-03-2024 16:50:33)
+		**********************************************************************************************************
+
+		Removing hydrogens in the pdb file of the seed molecules.(../05-PE_final_residues.pdb)... (12-03-2024 16:50:33)
+
+		Replicating and typing molecule (12-03-2024 16:50:33)
+		*********************************************************
+		Loading seed structure from 05-PE_final_residues_noH.pdb (12-03-2024 16:50:33)
+
+			 Start Loop over atoms. (12-03-2024 16:50:33)
+			 End Loop over atoms. (12-03-2024 16:50:33)
+
+			 Start Creating topology. (12-03-2024 16:50:33)
+			 End Creating topology. (12-03-2024 16:50:33)
+		Applying force field to the seed molecules 05-PE_final_residues_noH.pdb (12-03-2024 16:50:34)
+		 Checking bonds    ... (verbose: False) (12-03-2024 16:50:34).
+		 End checking bonds ... (verbose: False) (12-03-2024 16:50:34).
+		 Checking angles    ... (verbose: False) (12-03-2024 16:50:34).
+		 End checking angles ... (verbose: False) (12-03-2024 16:50:34).
+		 Checking dihedrals    ... (verbose: False) (12-03-2024 16:50:34).
+		 End dihedrals angles ... (verbose: False) (12-03-2024 16:50:34).
+		Replicating molecules 05-PE_final_residues_noH.pdb (12-03-2024 16:50:34)
+
+		Replicate a molecule or polymer chain (12-03-2024 16:50:34)
+		***************************************************************
+		Input file                  : 05-PE_final_residues_noH.pdb
+		Number of molecules in cell : 2
+		Number of chains in cell    : 1
+		Number of bonds in cell     : 406
+		Number of residues in cell  : 2
+		Number of atoms in cell     : 408
+		Simulation box dimension    : 5.6303 5.6303 14.6634 nm
+		Simulation box angles       : 90.00 90.00 90.00 degrees
+		Replicate the molecule 1x1x1 times
+		***************************************************************
+
+		Molecule replicated info (12-03-2024 16:50:34)
+		*************************************************
+		Number of molecules in cell : 2
+		Number of chains in cell    : 1
+		Number of residues in cell  : 2
+		Number of atoms in cell     : 408
+		Simulation box dimension    : 5.6303 5.6303 14.6634 nm
+		Simulation box angles       : 90.00 90.00 90.00 degrees
+		Mass density                : 0.0175 g/cm3
+		*************************************************
+
+
+		Removing TER labels in the pdb file of the seed molecules.(./05-PE_final_residues_noH_replicate.pdb)... (12-03-2024 16:50:34)
+		WARNING: Using a united-atom model without guess or define improper angles. 
+		If this is correct ignore this warning.
