@@ -1,0 +1,46 @@
+
+    ***********************************************************************
+                         Pair distribution calculations 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 18-03-2024 12:34:43 ============
+
+		Command line: 
+			python pair_distribution -t ../../topology_and_replicate/PE_test/03-MINIMIZATION/traj.part0001.trr --tpr ../../topology_and_replicate/PE_test/03-MINIMIZATION/new_topol.tpr --sets 1 100
+			         or
+			polymer_size -t ../../topology_and_replicate/PE_test/03-MINIMIZATION/traj.part0001.trr --tpr ../../topology_and_replicate/PE_test/03-MINIMIZATION/new_topol.tpr --sets 1 100
+
+	*** Creating a trajectory from...
+	../../topology_and_replicate/PE_test/03-MINIMIZATION/traj.part0001.trr
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 0.083738 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	../../topology_and_replicate/PE_test/03-MINIMIZATION/new_topol.tpr
+	Number of frames: 159
+	TIME(Adding topology): 0.008528 seconds
+	*** End Adding topology
+
+	Number of frames: 159
+	TIME(Read_Trajectories): 0.092422 seconds
+	*** End Creating a trajectory 
+

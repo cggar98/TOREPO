@@ -1,0 +1,76 @@
+
+    ***********************************************************************
+                         Polymer size calculations 
+              ----------------------------------------------
+
+                                Version 1.1
+
+                              Dr. Javier Ramos
+                      Macromolecular Physics Department
+                Instituto de Estructura de la Materia (IEM-CSIC)
+                               Madrid (Spain)
+
+        This utility is part of the polyanagro library. Polyanagro is an 
+        open-source python library to analyze simulations of polymer systems.
+
+        This software is distributed under the terms of the
+        GNU General Public License v3.0 (GNU GPLv3). A copy of
+        the license (LICENSE.txt) is included with this distribution.
+
+    ***********************************************************************
+        
+		Start Job at 15-03-2024 13:07:09 ============
+
+		Command line: 
+			python polymer_size -t /tmp/tmp7vujl57g/traj.part0001.trr --topo /tmp/tmp7vujl57g/new_topo.tpr --log pol_size.log --unwrap False --isodf
+			         or
+			polymer_size -t /tmp/tmp7vujl57g/traj.part0001.trr --topo /tmp/tmp7vujl57g/new_topo.tpr --log pol_size.log --unwrap False --isodf
+
+	*** Creating a trajectory from...
+	/tmp/tmp7vujl57g/traj.part0001.trr
+
+	*** Building bonds from topology... 
+	Setting bond orders: FALSE
+	TIME(Building_bonds_from_topology): 29.409 seconds
+	*** End Building bonds from topology... 
+
+	*** Adding topology 
+	/tmp/tmp7vujl57g/new_topo.tpr
+	Number of frames: 27
+	TIME(Adding topology): 0.60198 seconds
+	*** End Adding topology
+
+	Number of frames: 27
+	TIME(Read_Trajectories): 30.011226 seconds
+	*** End Creating a trajectory 
+
+	 Num of frames to analyse: 27
+	ODF calculation is deactivated, either not info about branch or backbone
+
+	*** Molecular weigth...
+
+	Average Molecular Weigth (g/mol) : 2864.12
+
+	*** Calculating Radius of gyration...
+	Radius of gyration to be written to ./Rg.dat 
+
+	*** Calculating End to End distance...
+	End to End distance to be written to ./Ree.dat 
+
+	Unwrap PBC coordinates: False
+	Cn, bond orientation, odf and internal distances calculations are deactivated, either not info about branch or backbone
+
+	IFRAME: 0 in 3e-06 seconds
+	ESTIMATED TIME using 10 frames (0.064193 seconds): 0.17 seconds
+
+	TIME(Chain dimensions): 0.171523 seconds
+	*** End Calculating Chain Dimensions.
+
+	*** Average values ***
+		 Rg^2_avg     =    2410.27 +-       3.74 (angstroms)
+		 Ree^2_avg    = -999999.99 +- -999999.99 (angstroms)
+		 Ree^2/Rg^2   = -999999.99 +- -999999.99 (angstroms)
+		 Cn_avg       = -999999.99 +- -999999.99 
+
+		Job  Done at 15-03-2024 13:07:39 ============
+
