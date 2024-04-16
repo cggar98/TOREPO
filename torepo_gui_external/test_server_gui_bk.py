@@ -3,10 +3,13 @@ import paramiko
 import json
 import subprocess
 import os
+from tkinter import *
+from tkinter import filedialog
 
 
 # Función para ejecutar comandos SSH
 def run_ssh_command(server, username, key_file, command):
+
     try:
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -27,15 +30,17 @@ def get_host_name(server, username, key_file):
     return output.strip() if output else None
 
 
-
 # Función para verificar si un programa está instalado en el servidor
 def check_program_installed(server, username, key_file, program):
+
     command = f"which {program}"
     output, error = run_ssh_command(server, username, key_file, command)
     return output.strip() if output else None
 
+
 # Función para verificar programas requeridos para un comando específico
 def check_required_programs(server, username, key_file, command):
+
     required_programs = {
         "List": ["ls"],
         "Currently directory": ["pwd"],
@@ -60,6 +65,7 @@ def check_required_programs(server, username, key_file, command):
 
     return [], []  # Si no se especifican programas requeridos para el comando, retorna listas vacías
 
+
 # Función para guardar las opciones en formato JSON
 def save_options_to_json(name_server, name_user, key_file, json_filename):
 
@@ -76,6 +82,7 @@ def save_options_to_json(name_server, name_user, key_file, json_filename):
 
     return json_string
 
+
 # Página del test server
 def func_page_test_server():
 
@@ -88,6 +95,16 @@ def func_page_test_server():
     name_server = st.text_input("Name Server", options["Name Server"], key="name_server")
     name_user = st.text_input("Username", options["Username"])
     key_file = st.text_input("Key SSH file path", options["Key SSH file path"])
+    browse_key_file = st.button("Browse local directory")
+
+    if browse_key_file:
+        wkdir = os.getcwd()
+        print(wkdir)
+        filename = filedialog.askopenfilename(initialdir=wkdir,
+                                              title="Select a File containing a ssh key")
+        print(filename)
+
+
 
     command_options = st.selectbox("Command:", ["List", "Currently directory", "Hostname", "Topology", "Another"])
 
