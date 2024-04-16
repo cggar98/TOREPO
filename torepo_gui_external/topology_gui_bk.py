@@ -9,67 +9,38 @@ import tarfile
 import time
 import tempfile
 import base64
-import paramiko
+
 
 # Logger configuration
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def run_ssh_command(server, username, key_file, command):
-    try:
-        ssh = paramiko.SSHClient()
-        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh.connect(server, username=username, key_filename=key_file)
-        stdin, stdout, stderr = ssh.exec_command(command)
-        output = stdout.read().decode()
-        error = stderr.read().decode()
-        ssh.close()
-        return output, error
-    except Exception as e:
-        return None, str(e)
-
 
 def run_topology_cmd(input_file, renumber_pdb, assign_residues,
                      filemap, separate_chains, pattern, isunwrap, guess_improper):
 
-
-    command = f"topology_cmd -i {input_file}"
+    bash_command = f"topology_cmd -i {input_file}"
 
     if renumber_pdb:
-        command += f" -r {renumber_pdb}"
+        bash_command += f" -r {renumber_pdb}"
     if assign_residues:
-        command += f" -a {assign_residues}"
+        bash_command += f" -a {assign_residues}"
     if filemap:
-        command += f" --filemap {filemap}"
+        bash_command += f" --filemap {filemap}"
     if separate_chains:
-        command += " --separate_chains"
+        bash_command += " --separate_chains"
     if pattern:
-        command += f" -p {pattern}"
+        bash_command += f" -p {pattern}"
     if isunwrap:
-        command += " -w"
+        bash_command += " -w"
     if guess_improper:
-        command += " --guess_improper"
+        bash_command += " --guess_improper"
 
-
-    process = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    output, error = run_ssh_command(name_server, name_user, key_file, command)
+    process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output, error = process.communicate()
     return output, error
 
-
-    # st.success("All required programs are installed.")
-
-    if output:
-        st.success("Command executed successfully:")
-        st.code(output)
-        st.sidebar.success(f"Connected to the server: {get_host_name(name_server, name_user, key_file)}")
-    elif error:
-        st.error("Error executing command:")
-        st.code(error)
-        st.sidebar.error("Could not connect to the server")
-    else:
-        st.error("Error executing command: No output or error.")
-        st.sidebar.error("Could not connect to the server")
 
 
 def save_uploaded_file(uploaded_file, temp_dir):
