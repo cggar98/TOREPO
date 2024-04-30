@@ -1,0 +1,50 @@
+# LAMMPS Input Script created with replicate_polymer_topology
+# FF: /home/cgarcia/Programs/replicate_polymer_topology/forcefields/trappe-ua_PEToxvaerd.xml
+
+#======1.Initialization======
+units                real                                    
+boundary             p p p                                   
+dimension            3                                       
+atom_style           full                                    
+
+#======2.Force Field terms======
+pair_style     hybrid lj/cut/coul/long 10.0 10.0
+bond_style     hybrid harmonic
+angle_style    hybrid harmonic
+dihedral_style hybrid nharmonic multi/harmonic
+#improper_style hybrid harmonic
+special_bonds lj 0.0 0.0 0.0 coul 0.0 0.0 0.0
+
+#======3.Data======
+read_data 05-PE_final_residues_noH_replicate_clean.lmp
+
+#======4.Modify Pairs======
+pair_modify mix arithmetic #tail yes
+kspace_style pppm 1e-6
+kspace_modify gewald 0.1
+
+#======5.Settings======
+neigh_modify every 10 delay 20 check yes
+thermo          450
+thermo_style custom step cpu ebond eangle edihed eimp epair evdwl ecoul elong etail pe temp press lx ly lz density
+dump       1 all dcd      100  dump.dcd
+dump       2 all xyz    10000  dump_last.xyz
+dump       3 all atom   10000  dump_last.atom
+dump       4 all xtc      100  dump.xtc
+restart    10000 restart.data
+
+#======6.Minimization simulation======
+run 0
+#minimize 1.0e-8 1.0e-10 10000 10000
+
+#======6.NVT simulation======
+# timestep 1.0
+# fix 1 all nvt temp 450 450 100.0 drag 0.1
+# fix 2 all temp/csvr 450 450 500 54324  # Equivalent to v-rescale Gromacs
+# run 10000
+
+#======6.NPT simulation======
+# fix 1 all npt temp 450 450 100.0 iso 1.0 1.0 1000.0 drag 1.0
+# fix 2 all temp/csvr 450 450 500 54324  # Equivalent to v-rescale Gromacs
+# run 10000
+
