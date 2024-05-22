@@ -1,0 +1,1 @@
+./run_gromacs.sh: línea 6: source: /usr/bin/gmx: no se puede ejecutar el archivo binario
