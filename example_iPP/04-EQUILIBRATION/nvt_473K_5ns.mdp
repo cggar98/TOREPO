@@ -1,0 +1,66 @@
+; RUN CONTROL PARAMETERS
+integrator               = md
+dt                       = 0.0005
+init_step                = 0
+nsteps                   = 100000
+;nsteps                   = 100000
+
+; OUTPUT CONTROL PARAMETERS
+nstxout                  = 50000000
+nstvout                  = 50000000
+nstlog                   = 50000
+nstenergy                = 50000
+nstxout-compressed       = 50000
+compressed-x-grps        = System
+energygrps               = System
+
+; NEIGHBORSEARCHING PARAMETERS
+nstlist                  = 40
+pbc                      = xyz
+rlist                    = 2.9125
+
+; OPTIONS FOR BONDS    
+;constraint_algorithm     = lincs	
+;constraints	             = h-bonds	
+;lincs_iter	             = 1		
+;lincs_order	             = 4		
+
+; OPTIONS FOR ELECTROSTATICS AND VDW
+cutoff-scheme            = Verlet
+
+coulombtype              = PME
+rcoulomb                 = 2.8125
+pme_order	             = 4        
+fourierspacing	         = 0.16		
+
+vdw_type                 = Cut-off
+rvdw                     = 2.8125
+rvdw_switch              = 2.8125
+
+;DispCorr = EnerPres
+
+; OPTIONS FOR TEMPERATURE COUPLING ALGORITHMS
+tcoupl                   = V-rescale
+tc-grps                  = System
+tau_t                    = 0.5
+ref_t                    = 473.15
+
+; OPTIONS FOR PRESSURE COUPLING ALGORITHMS
+;Pressure coupling
+;Pcoupl                  = berendsen
+;Pcoupl                   = Parrinello-Rahman
+;Pcoupltype               = isotropic
+;tau_p                    = 5.0
+;compressibility          = 4.5e-5
+;ref_p                    = 1.0
+
+; GENERATE VELOCITIES FOR STARTUP RUN
+gen_vel                  = yes
+gen_temp                 = 473.15
+gen_seed                 = 173529
+
+;OPTIONS FOR SIMULATED ANNEALING
+;annealing                = single
+;annealing-npoints        = 2
+;annealing-time           = 0 1500000
+;annealing-temp           = 500 350
